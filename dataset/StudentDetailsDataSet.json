@@ -1,0 +1,59 @@
+{
+	"name": "StudentDetailsDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "StudnetDetails.xlsx",
+				"container": "prod"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Course",
+				"type": "String"
+			},
+			{
+				"name": "DemoConducted",
+				"type": "String"
+			},
+			{
+				"name": "EngagementNo",
+				"type": "String"
+			},
+			{
+				"name": "Enrolled",
+				"type": "String"
+			},
+			{
+				"name": "EnrollmentNumber",
+				"type": "String"
+			},
+			{
+				"name": "Grade",
+				"type": "String"
+			},
+			{
+				"name": "MailId",
+				"type": "String"
+			},
+			{
+				"name": "StudentName",
+				"type": "String"
+			},
+			{
+				"name": "TeacherMapped",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,43 @@
+{
+	"name": "TeacherDetailsDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "TeacherDetail.xlsx",
+				"container": "prod"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "CommunicationLevel",
+				"type": "String"
+			},
+			{
+				"name": "FirstName",
+				"type": "String"
+			},
+			{
+				"name": "LastName",
+				"type": "String"
+			},
+			{
+				"name": "SessionHygine",
+				"type": "String"
+			},
+			{
+				"name": "TeacherId",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

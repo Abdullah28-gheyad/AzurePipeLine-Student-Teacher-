@@ -1,0 +1,81 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "StudentDetailsDataSet",
+						"type": "DatasetReference"
+					},
+					"name": "StudentSrc"
+				},
+				{
+					"dataset": {
+						"referenceName": "TeacherDetailsDataSet",
+						"type": "DatasetReference"
+					},
+					"name": "TeacherSrc"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "FinalOutput",
+						"type": "DatasetReference"
+					},
+					"name": "sink",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureBlobStorageLS",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [
+				{
+					"name": "join"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Course as string,",
+				"          DemoConducted as string,",
+				"          EngagementNo as string,",
+				"          Enrolled as string,",
+				"          EnrollmentNumber as string,",
+				"          Grade as string,",
+				"          MailId as string,",
+				"          StudentName as string,",
+				"          TeacherMapped as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> StudentSrc",
+				"source(output(",
+				"          CommunicationLevel as string,",
+				"          FirstName as string,",
+				"          LastName as string,",
+				"          SessionHygine as string,",
+				"          TeacherId as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> TeacherSrc",
+				"StudentSrc, TeacherSrc join(TeacherMapped == TeacherId,",
+				"     joinType:'outer',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join",
+				"join sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     partitionFileNames:['FinalOutput'],",
+				"     truncate: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink"
+			]
+		}
+	}
+}

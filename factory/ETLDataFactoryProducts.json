@@ -1,0 +1,9 @@
+{
+	"name": "ETLDataFactoryProducts",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7cecff54-6e41-4706-92b5-e1abe15c86a3",
+		"tenantId": "6845d6ca-1ec5-4c0e-9e9d-34130ce0a0b8"
+	}
+}
