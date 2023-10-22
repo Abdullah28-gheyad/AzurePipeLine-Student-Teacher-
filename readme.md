@@ -1,4 +1,6 @@
 # Azure Data Factory Project Documentation
+![ProjectArch](https://github.com/Abdullah28-gheyad/AzurePipeLine-Student-Teacher-/assets/68871710/e6d6b9c9-80b2-42b4-984e-df601beae47a)
+
 ![PipeLine Running](https://github.com/Abdullah28-gheyad/AzurePipeLine-Student-Teacher-/assets/68871710/ef8a2734-a126-45f5-82ed-4eaaeb948b6f)
 
 ![pipeline2](https://github.com/Abdullah28-gheyad/AzurePipeLine-Student-Teacher-/assets/68871710/2f34a2a1-8cb7-4a48-8343-2cbc2e5f4353)
